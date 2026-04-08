@@ -1,19 +1,18 @@
 export const siteConfig = {
   name: "Max",
   tagline: "Where OpenClaw Meets N8N and CRM",
-  description: "AI-powered automation assistant that lives in your chat — managing leads, workflows, and tasks through natural conversation.",
+  description: "Available 24/7 to help with coding, automation, data analysis, web scraping, and more.",
 
   mcpServers: [
     {
       name: "Twenty CRM",
       description: "Full CRM integration — manage companies, people, opportunities, tasks, and notes via chat",
-      icon: "🛠️",
+      icon: "💼",
       commands: [
         "Find me the best opportunity for [product]",
         "Add a note to opportunity [name]",
         "List all companies with open deals",
-        "Create a task for the sales team",
-        "Show recent leads from the CRM"
+        "Create a task for the sales team"
       ]
     },
     {
@@ -23,8 +22,7 @@ export const siteConfig = {
       commands: [
         "Show my active workflows",
         "Run the job posting workflow",
-        "Check n8n execution history",
-        "Enable/disable workflow"
+        "Check n8n execution history"
       ]
     },
     {
@@ -34,8 +32,7 @@ export const siteConfig = {
       commands: [
         "Search my memory for [topic]",
         "Store this conversation as context",
-        "Query the leads database",
-        "Generate embeddings for [text]"
+        "Query the leads database"
       ]
     },
     {
@@ -45,8 +42,7 @@ export const siteConfig = {
       commands: [
         "Scrape job listings from [site]",
         "Extract company data from [URL]",
-        "Monitor competitor prices",
-        "Research market trends"
+        "Monitor competitor prices"
       ]
     },
     {
@@ -56,8 +52,7 @@ export const siteConfig = {
       commands: [
         "Send email to [recipient]",
         "Check my inbox for new leads",
-        "Reply to that email about [topic]",
-        "Forward the quote to [email]"
+        "Reply to that email about [topic]"
       ]
     },
     {
@@ -67,8 +62,7 @@ export const siteConfig = {
       commands: [
         "Update the README with new features",
         "Check git status on [project]",
-        "Create a new workflow file",
-        "Review recent changes in [repo]"
+        "Create a new workflow file"
       ]
     }
   ],

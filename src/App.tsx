@@ -25,15 +25,6 @@ function App() {
           >
             {siteConfig.tagline}
           </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg text-purple-300 max-w-2xl mx-auto"
-          >
-            {siteConfig.description}
-          </motion.p>
         </div>
       </section>
 
@@ -83,39 +74,8 @@ function App() {
         </div>
       </section>
 
-      {/* What I Can Do */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold mb-12 text-center"
-          >
-            What I Can Do
-          </motion.h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {siteConfig.capabilities.map((capability, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all hover:scale-105"
-              >
-                <div className="text-4xl mb-4">{capability.emoji}</div>
-                <h3 className="text-xl font-bold mb-2">{capability.title}</h3>
-                <p className="text-purple-200">{capability.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Infrastructure - Containers */}
-      <section className="py-16 px-4 bg-black/20">
+      <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0 }}
@@ -147,6 +107,37 @@ function App() {
                 <div className="text-2xl mb-2">{container.icon}</div>
                 <h3 className="text-lg font-bold mb-1">{container.name}</h3>
                 <p className="text-purple-300 text-sm">{container.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What I Can Do */}
+      <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-12 text-center"
+          >
+            What I Can Do
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {siteConfig.capabilities.map((capability, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all hover:scale-105"
+              >
+                <div className="text-4xl mb-4">{capability.emoji}</div>
+                <h3 className="text-xl font-bold mb-2">{capability.title}</h3>
+                <p className="text-purple-200">{capability.description}</p>
               </motion.div>
             ))}
           </div>
