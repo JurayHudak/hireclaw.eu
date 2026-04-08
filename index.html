@@ -112,6 +112,7 @@
       overflow: hidden;
       background: #000;
       box-shadow: 0 20px 60px rgba(249,115,22,0.2);
+      position: relative;
     }
     video {
       width: 100%;
@@ -119,6 +120,50 @@
       max-height: 500px;
       object-fit: contain;
       background: #000;
+    }
+    #video-poster {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      background: #000;
+    }
+    #video-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(249,115,22,0.9);
+      border: 3px solid #fff;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+    #video-play-btn:hover {
+      background: rgba(249,115,22,1);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    #video-play-btn::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 24px solid #fff;
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      margin-left: 4px;
+    }
+    #video-play-btn span {
+      display: none;
     }
     .video-label {
       display: flex;
@@ -146,6 +191,25 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
+      }
+      #video-play-btn {
+        width: 56px;
+        height: 56px;
+        font-size: 22px;
+      }
+      #video-play-btn::before {
+        border-left-width: 18px;
+        border-top-width: 11px;
+        border-bottom-width: 11px;
+      }
+      .video-section {
+        padding: 16px;
+      }
+      .video-player {
+        border-radius: 8px;
+      }
+      video {
+        max-height: 220px;
       }
     }
 
@@ -353,7 +417,7 @@
       <p style="margin-bottom: 20px; color: #94a3b8;">AI-generated video featuring Jur — created via Slack using AI Video Talk bot. Subject dialogue + narrator voice-over assembled automatically. More videos like this added regularly.</p>
       <div class="video-player" id="video-container">
         <img src="signal-video-poster.webp" alt="AI Promotional Video thumbnail" id="video-poster" loading="lazy" decoding="async">
-        <button id="video-play-btn" onclick="loadAndPlayVideo()" aria-label="Play video">▶</button>
+        <button id="video-play-btn" onclick="loadAndPlayVideo()" aria-label="Play video"><span>▶</span></button>
       </div>
       <script>
         function loadAndPlayVideo() {
