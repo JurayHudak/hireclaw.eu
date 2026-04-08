@@ -568,68 +568,39 @@
 
     <div class="section-divider">— Infrastructure —</div>
 
-    <!-- Token Consumption Dashboard -->
+    <!-- System Monitoring Dashboard -->
     <div class="stats-section">
       <div class="video-label">
-        <h2 style="border:none; margin:0; padding:0;">📊 Token Consumption Dashboard</h2>
+        <h2 style="border:none; margin:0; padding:0;">📊 System Monitoring Dashboard</h2>
+        <span class="badge-green">Prometheus + Grafana</span>
       </div>
-      <p style="margin-bottom: 20px; color: #94a3b8;">Real-time token tracking by AI model. Know exactly what you're spending — every request, every model, always under control.</p>
+      <p style="margin-bottom: 20px; color: #94a3b8;">Real-time system monitoring — CPU, memory, disk, and container health. Know exactly what's happening on your VPS at all times.</p>
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-icon">💰</div>
-          <div class="stat-value">Transparent</div>
-          <div class="stat-label">Cost visibility per model</div>
+          <div class="stat-icon">💻</div>
+          <div class="stat-value">CPU Usage</div>
+          <div class="stat-label">Real-time processor load</div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon">📈</div>
-          <div class="stat-value">24h Tracking</div>
-          <div class="stat-label">Last 24 hours of token usage</div>
+          <div class="stat-icon">🧠</div>
+          <div class="stat-value">Memory</div>
+          <div class="stat-label">RAM utilization + swap</div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon">🤖</div>
-          <div class="stat-value">Multi-Model</div>
-          <div class="stat-label">Sonnet, MiniMax, Gemini & more</div>
+          <div class="stat-icon">💾</div>
+          <div class="stat-value">Disk I/O</div>
+          <div class="stat-label">Storage read/write speeds</div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon">⚡</div>
-          <div class="stat-value">Live Metrics</div>
-          <div class="stat-label">Grafana dashboards + Prometheus</div>
+          <div class="stat-icon">📦</div>
+          <div class="stat-value">Containers</div>
+          <div class="stat-label">13 containers monitored</div>
         </div>
       </div>
       <div class="grafana-screenshot">
-        <img src="grafana-tokens-24h.png" alt="Token consumption by model - last 24 hours" style="width:100%; border-radius: 12px; border: 1px solid rgba(168,85,247,0.3);">
+        <img src="grafana-cpu-usage.png" alt="Grafana CPU usage dashboard - real-time system monitoring" style="width:100%; border-radius: 12px; border: 1px solid rgba(168,85,247,0.3);">
       </div>
-      <p style="margin-top: 16px; font-size: 0.85rem; color: #64748b;">Live Grafana dashboard — tokens by AI model over the last 24 hours. Prometheus + Grafana running on this VPS.</p>
-    </div>
-
-    <!-- Docker Containers -->
-    <h2>🐳 Docker Containers</h2>
-    <span class="badge">11 containers running</span>
-    <div class="grid-2">
-      <li><h3>caddy</h3><p>Reverse proxy + automatic HTTPS via Let's Encrypt — routes all incoming web traffic</p></li>
-      <li><h3>n8n-main</h3><p>n8n workflow automation — main instance with web UI</p></li>
-      <li><h3>n8n-worker</h3><p>n8n worker — processes workflow executions concurrently</p></li>
-      <li><h3>postgres</h3><p>PostgreSQL 16 + pgvector extension — n8n database + AI vector memory storage</p></li>
-      <li><h3>redis</h3><p>In-memory queue — handles n8n workflow job queues</p></li>
-      <li><h3>max-portfolio</h3><p>Portfolio website — serves hireclaw.eu via nginx</p></li>
-      <li><h3>ai-video-gallery</h3><p>Video showcase site — serves www.aivideotalk.de via nginx</p></li>
-      <li><h3>grafana</h3><p>Monitoring dashboards — system and n8n health visualization</p></li>
-      <li><h3>grafana-renderer</h3><p>Grafana image renderer — headless Chrome for panel screenshots</p></li>
-      <li><h3>prometheus</h3><p>Metrics collection — scrapes and stores time-series data from n8n</p></li>
-      <li><h3>otel-collector</h3><p>OpenTelemetry collector — aggregates traces and metrics</p></li>
-    </div>
-
-    <!-- MCP Servers -->
-    <h2>🔌 MCP Servers</h2>
-    <span class="badge-orange">7 MCP servers active</span>
-    <div class="grid-2">
-      <li><h3 class="mono">postgres</h3><p>Access to vector memory database — semantic search, job listings, leads CRM</p></li>
-      <li><h3 class="mono">postgres-workflow</h3><p>Access to workflow database — n8n execution data and logs</p></li>
-      <li><h3 class="mono">n8n-mcp</h3><p>Full n8n control — manage and trigger workflows programmatically</p></li>
-      <li><h3 class="mono">agentmail</h3><p>Email management — send and receive emails via AgentMail API</p></li>
-      <li><h3 class="mono">context7</h3><p>Documentation search — queries latest docs from libraries and frameworks</p></li>
-      <li><h3 class="mono">exa</h3><p>Web search — semantic search with code and content understanding</p></li>
-      <li><h3 class="mono">apify</h3><p>Web scraping & automation — browser automation and data extraction</p></li>
+      <p style="margin-top: 16px; font-size: 0.85rem; color: #64748b;">Live Grafana dashboard — CPU usage across all cores. Node Exporter + Prometheus running on this VPS.</p>
     </div>
 
     <!-- Pricing -->
