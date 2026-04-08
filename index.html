@@ -112,13 +112,15 @@
       overflow: hidden;
       background: #000;
       box-shadow: 0 20px 60px rgba(249,115,22,0.2);
+      min-height: 300px;
+      position: relative;
     }
     video {
       width: 100%;
       display: block;
       max-height: 500px;
       object-fit: contain;
-      background: #000;
+      background: transparent;
     }
     .video-label {
       display: flex;
@@ -343,7 +345,7 @@
       </div>
       <p style="margin-bottom: 20px; color: #94a3b8;">AI-generated video featuring Jur — created via Slack using AI Video Talk bot. Subject dialogue + narrator voice-over assembled automatically. More videos like this added regularly.</p>
       <div class="video-player">
-        <video controls preload="none" poster="signal-video-poster.webp" playsinline>
+        <video controls preload="metadata" poster="signal-video-poster.webp" playsinline width="1280" height="720">
           <source src="signal-video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
