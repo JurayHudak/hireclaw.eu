@@ -25,6 +25,61 @@ function App() {
           >
             {siteConfig.tagline}
           </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg text-purple-300 max-w-2xl mx-auto"
+          >
+            {siteConfig.description}
+          </motion.p>
+        </div>
+      </section>
+
+      {/* MCPs Section - OpenClaw Integrations */}
+      <section className="py-16 px-4 bg-black/20">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-4 text-center"
+          >
+            MCP-Powered Integrations
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-purple-300 text-center mb-12 max-w-2xl mx-auto"
+          >
+            Natural language commands that connect OpenClaw to your tools — no clicks required.
+          </motion.p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {siteConfig.mcpServers.map((mcp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all border border-white/10"
+              >
+                <div className="text-3xl mb-3">{mcp.icon}</div>
+                <h3 className="text-xl font-bold mb-2">{mcp.name}</h3>
+                <p className="text-purple-300 text-sm mb-4">{mcp.description}</p>
+                <div className="space-y-2">
+                  {mcp.commands.slice(0, 3).map((cmd, i) => (
+                    <p key={i} className="text-xs text-green-400 font-mono bg-black/30 rounded px-2 py-1 truncate">
+                      {cmd}
+                    </p>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -53,6 +108,45 @@ function App() {
                 <div className="text-4xl mb-4">{capability.emoji}</div>
                 <h3 className="text-xl font-bold mb-2">{capability.title}</h3>
                 <p className="text-purple-200">{capability.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Infrastructure - Containers */}
+      <section className="py-16 px-4 bg-black/20">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-4 text-center"
+          >
+            Production Infrastructure
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-purple-300 text-center mb-12 max-w-2xl mx-auto"
+          >
+            Self-hosted on Hetzner VPS — 13 Docker containers, monitored and secured.
+          </motion.p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {siteConfig.containers.map((container, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all border border-white/5"
+              >
+                <div className="text-2xl mb-2">{container.icon}</div>
+                <h3 className="text-lg font-bold mb-1">{container.name}</h3>
+                <p className="text-purple-300 text-sm">{container.description}</p>
               </motion.div>
             ))}
           </div>

@@ -1,7 +1,115 @@
 export const siteConfig = {
   name: "Max",
-  tagline: "Your AI Digital Assistant",
-  description: "Available 24/7 to help with coding, automation, data analysis, web scraping, and more.",
+  tagline: "Where OpenClaw Meets N8N and CRM",
+  description: "AI-powered automation assistant that lives in your chat — managing leads, workflows, and tasks through natural conversation.",
+
+  mcpServers: [
+    {
+      name: "Twenty CRM",
+      description: "Full CRM integration — manage companies, people, opportunities, tasks, and notes via chat",
+      icon: "🛠️",
+      commands: [
+        "Find me the best opportunity for [product]",
+        "Add a note to opportunity [name]",
+        "List all companies with open deals",
+        "Create a task for the sales team",
+        "Show recent leads from the CRM"
+      ]
+    },
+    {
+      name: "n8n Workflows",
+      description: "Trigger, monitor, and manage n8n automation workflows",
+      icon: "⚡",
+      commands: [
+        "Show my active workflows",
+        "Run the job posting workflow",
+        "Check n8n execution history",
+        "Enable/disable workflow"
+      ]
+    },
+    {
+      name: "PostgreSQL + Vector DB",
+      description: "Vector memory storage and database operations",
+      icon: "🗄️",
+      commands: [
+        "Search my memory for [topic]",
+        "Store this conversation as context",
+        "Query the leads database",
+        "Generate embeddings for [text]"
+      ]
+    },
+    {
+      name: "Apify Scraper",
+      description: "Web scraping and data extraction at scale",
+      icon: "🌐",
+      commands: [
+        "Scrape job listings from [site]",
+        "Extract company data from [URL]",
+        "Monitor competitor prices",
+        "Research market trends"
+      ]
+    },
+    {
+      name: "AgentMail",
+      description: "Send and receive emails through natural chat",
+      icon: "📧",
+      commands: [
+        "Send email to [recipient]",
+        "Check my inbox for new leads",
+        "Reply to that email about [topic]",
+        "Forward the quote to [email]"
+      ]
+    },
+    {
+      name: "File & Code Management",
+      description: "Read, write, edit code and manage project files",
+      icon: "📁",
+      commands: [
+        "Update the README with new features",
+        "Check git status on [project]",
+        "Create a new workflow file",
+        "Review recent changes in [repo]"
+      ]
+    }
+  ],
+
+  containers: [
+    {
+      name: "n8n (Main + Worker)",
+      description: "Workflow automation engine with queue-based processing",
+      icon: "⚙️"
+    },
+    {
+      name: "Twenty CRM",
+      description: "Full-stack CRM with companies, deals, tasks, and AI features",
+      icon: "💼"
+    },
+    {
+      name: "PostgreSQL + pgvector",
+      description: "Database with vector similarity search for AI memory",
+      icon: "🗄️"
+    },
+    {
+      name: "Redis",
+      description: "Job queue management for n8n workflow execution",
+      icon: "📬"
+    },
+    {
+      name: "Prometheus + Grafana",
+      description: "System monitoring and visualization dashboards",
+      icon: "📊"
+    },
+    {
+      name: "Caddy + Tailscale",
+      description: "Reverse proxy with automatic HTTPS and secure tunnels",
+      icon: "🔒"
+    },
+    {
+      name: "OpenClaw Gateway",
+      description: "AI orchestration layer connecting chat to all services",
+      icon: "🤖"
+    }
+  ],
 
   capabilities: [
     {
@@ -11,13 +119,13 @@ export const siteConfig = {
     },
     {
       emoji: "📊",
-      title: "Data & Databases",
-      description: "PostgreSQL, vector search, lead generation, job tracking"
+      title: "CRM & Lead Management",
+      description: "Twenty CRM, opportunities, notes, tasks — all from chat"
     },
     {
       emoji: "🤖",
-      title: "Web Scraping",
-      description: "Apify, custom scripts, data extraction, research"
+      title: "AI Agent Operations",
+      description: "Manage workflows, trigger automations, query databases"
     },
     {
       emoji: "🧾",
@@ -61,8 +169,8 @@ export const siteConfig = {
     },
     {
       emoji: "🧠",
-      title: "Remembers Context",
-      description: "I learn your preferences, past decisions, and project details across sessions. No need to repeat yourself."
+      title: "CRM-Powered Memory",
+      description: "Every lead, deal, and customer interaction stored in Twenty CRM. Ask me to find opportunities, add notes, or update records — all from chat."
     },
     {
       emoji: "🔐",
