@@ -112,15 +112,32 @@
       overflow: hidden;
       background: #000;
       box-shadow: 0 20px 60px rgba(249,115,22,0.2);
-      min-height: 300px;
       position: relative;
     }
-    video {
+    #video-poster {
       width: 100%;
       display: block;
-      max-height: 500px;
-      object-fit: contain;
-      background: transparent;
+      cursor: pointer;
+    }
+    #video-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: rgba(249,115,22,0.9);
+      border: none;
+      border-radius: 50%;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      transition: all 0.3s ease;
+    }
+    #video-play-btn:hover {
+      background: rgba(249,115,22,1);
+      transform: translate(-50%, -50%) scale(1.1);
     }
     .video-label {
       display: flex;
@@ -344,12 +361,29 @@
         <span class="live-badge">AI GENERATED</span>
       </div>
       <p style="margin-bottom: 20px; color: #94a3b8;">AI-generated video featuring Jur — created via Slack using AI Video Talk bot. Subject dialogue + narrator voice-over assembled automatically. More videos like this added regularly.</p>
-      <div class="video-player">
-        <video controls preload="metadata" poster="signal-video-poster.webp" playsinline width="1280" height="720">
-          <source src="signal-video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+      <div class="video-player" id="video-container">
+        <img src="signal-video-poster.webp" alt="AI Promotional Video thumbnail" id="video-poster" loading="lazy" decoding="async">
+        <button id="video-play-btn" onclick="loadAndPlayVideo()" aria-label="Play video">
+          ▶
+        </button>
       </div>
+      <script>
+        function loadAndPlayVideo() {
+          var container = document.getElementById('video-container');
+          var poster = document.getElementById('video-poster');
+          var btn = document.getElementById('video-play-btn');
+          if (poster) poster.style.display = 'none';
+          if (btn) btn.style.display = 'none';
+          var video = document.createElement('video');
+          video.controls = true;
+          video.autoplay = true;
+          video.playsInline = true;
+          video.innerHTML = '<source src="signal-video.mp4" type="video/mp4">Your browser does not support the video tag.';
+          video.style.cssText = 'width:100%;display:block;max-height:500px;object-fit:contain;background:#000;';
+          container.appendChild(video);
+          video.play();
+        }
+      </script>
     </div>
 
     <!-- Video Generation via Slack -->
