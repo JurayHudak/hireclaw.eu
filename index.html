@@ -139,6 +139,13 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0.5; }
     }
+    @media (max-width: 600px) {
+      .video-label {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
 
     /* Slack integration */
     .slack-card {
