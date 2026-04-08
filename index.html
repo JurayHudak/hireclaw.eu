@@ -134,6 +134,8 @@
       font-size: 0.75rem;
       font-weight: bold;
       animation: pulse 2s infinite;
+      max-width: 100%;
+      text-align: center;
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; }
@@ -349,12 +351,27 @@
         <span class="live-badge">AI GENERATED</span>
       </div>
       <p style="margin-bottom: 20px; color: #94a3b8;">AI-generated video featuring Jur — created via Slack using AI Video Talk bot. Subject dialogue + narrator voice-over assembled automatically. More videos like this added regularly.</p>
-      <div class="video-player">
-        <video controls preload="metadata">
-          <source src="signal-video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+      <div class="video-player" id="video-container">
+        <img src="signal-video-poster.webp" alt="AI Promotional Video thumbnail" id="video-poster" loading="lazy" decoding="async">
+        <button id="video-play-btn" onclick="loadAndPlayVideo()" aria-label="Play video">▶</button>
       </div>
+      <script>
+        function loadAndPlayVideo() {
+          var container = document.getElementById('video-container');
+          var poster = document.getElementById('video-poster');
+          var btn = document.getElementById('video-play-btn');
+          if (poster) poster.style.display = 'none';
+          if (btn) btn.style.display = 'none';
+          var video = document.createElement('video');
+          video.controls = true;
+          video.autoplay = true;
+          video.playsInline = true;
+          video.innerHTML = '<source src="signal-video.mp4" type="video/mp4">Your browser does not support the video tag.';
+          video.style.cssText = 'width:100%;display:block;max-height:500px;object-fit:contain;background:#000;';
+          container.appendChild(video);
+          video.play();
+        }
+      </script>
     </div>
 
     <!-- Video Generation via Slack -->
@@ -637,6 +654,41 @@
       <li><h3 class="mono">context7</h3><p>Documentation search — queries latest docs from libraries and frameworks</p></li>
       <li><h3 class="mono">exa</h3><p>Web search — semantic search with code and content understanding</p></li>
       <li><h3 class="mono">apify</h3><p>Web scraping & automation — browser automation and data extraction</p></li>
+    </div>
+
+    <!-- System Monitoring Dashboard -->
+    <div class="stats-section">
+      <div class="video-label">
+        <h2 style="border:none; margin:0; padding:0;">📊 System Monitoring Dashboard</h2>
+        <span class="badge-green">Prometheus + Grafana</span>
+      </div>
+      <p style="margin-bottom: 20px; color: #94a3b8;">Real-time system monitoring — CPU, memory, disk, and container health. Know exactly what's happening on your VPS at all times.</p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">💻</div>
+          <div class="stat-value">CPU Usage</div>
+          <div class="stat-label">Real-time processor load</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🧠</div>
+          <div class="stat-value">Memory</div>
+          <div class="stat-label">RAM utilization + swap</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💾</div>
+          <div class="stat-value">Disk I/O</div>
+          <div class="stat-label">Storage read/write speeds</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📦</div>
+          <div class="stat-value">Containers</div>
+          <div class="stat-label">13 containers monitored</div>
+        </div>
+      </div>
+      <div class="grafana-screenshot">
+        <img src="grafana-system-overview.png" alt="Grafana System Overview dashboard - CPU, Memory, Disk, Load" style="width:100%; border-radius: 12px; border: 1px solid rgba(168,85,247,0.3);">
+      </div>
+      <p style="margin-top: 16px; font-size: 0.85rem; color: #64748b;">Live Grafana dashboard — CPU usage across all cores. Node Exporter + Prometheus running on this VPS.</p>
     </div>
 
     <!-- Pricing -->
